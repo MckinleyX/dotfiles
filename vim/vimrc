@@ -1,0 +1,138 @@
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+set encoding=UTF-8
+let &packpath = &runtimepath
+
+set nocompatible
+syntax on
+
+mapclear " "
+let mapleader=" "
+let maplocalleader=" "
+
+call plug#begin()
+Plug 'godlygeek/tabular'
+Plug 'kovetskiy/sxhkd-vim'
+Plug 'lervag/vimtex',				{ 'for' : 'tex' }
+"Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/nerdtree'
+Plug 'dense-analysis/ale'
+Plug 'hura/vim-asymptote',			{ 'for' : 'asy' }
+Plug 'kovisoft/slimv',				{ 'for' : 'lisp' }
+Plug 'plasticboy/vim-markdown',		{ 'for' : 'markdown' }
+Plug 'thinca/vim-quickrun'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'vimlab/split-term.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"Plug 'puremourning/vimspector'
+
+"if has('nvim')
+"	Plug 'shougo/deoppet.nvim'
+"endif
+Plug 'ryanoasis/vim-devicons'
+call plug#end()
+
+
+filetype off
+set undofile
+if has('nvim')
+	set undodir=$HOME/.vim/undo_nvim
+else
+	set undodir=$HOME/.vim/undo_vim
+endif
+
+set foldenable
+set foldmethod=indent
+set scrolloff=4
+set autoread 
+set wildmenu
+set laststatus=2
+set hlsearch
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set showcmd
+
+
+let g:NERDTreeDirArrowExpandable=''
+let g:NERDTreeDirArrowCollapsible=''
+
+let g:lisp_rainbow=1
+let g:paredit_mode=0
+let g:slimv_leader='\'
+
+let g:syntastic_cpp_check_header=1
+let g:syntastic_warning_symbol='>'
+let g:syntastic_error_symbol='>>'
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_wq = 0
+
+let g:vimtex_log_verbose=1
+
+" Because Ctrl-W is kinda hard
+nnoremap <leader>l l
+nnoremap <leader>h h
+nnoremap <leader>j j
+nnoremap <leader>k k
+nnoremap <leader>L L
+nnoremap <leader>H H
+nnoremap <leader>J J
+nnoremap <leader>K K
+nnoremap <leader>< <
+nnoremap <leader>> >
+
+nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <silent> <leader>n :noh<CR>
+nnoremap <leader>r :QuickRun<CR>
+nnoremap Y y$
+
+" Probably a bad habit
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
+nnoremap <CR> :wa<CR>:w<CR>
+nnoremap Q :q<CR>
+
+
+" Use relative numbers while in normal mode in a buffer
+augroup numbertoggle
+	autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave * set number relativenumber
+	autocmd BufLeave,FocusLost,InsertEnter * set number norelativenumber
+augroup END
+
+filetype plugin indent on
+
+let g:airline#extensions#ale#enabled = 1
+
+let g:airline_theme='violet'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
+
+
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   '%dW %dE',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
+
+set statusline=%{LinterStatus()}
