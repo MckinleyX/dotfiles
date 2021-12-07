@@ -1,3 +1,4 @@
 /vim/undo*
 /vim/plugged
 /asy/history
+**/error.log
