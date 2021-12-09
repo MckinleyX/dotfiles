@@ -2,7 +2,7 @@ autoload -Uz compinit promptinit vcs_info
 compinit
 promptinit
 
-[[ -f ~/.profile ]] && . ~/.profile #If ~/.profile exists then source it
+test -f ~/.profile && . ~/.profile #If ~/.profile exists then source it
 
 zstyle ':completion:*' menu select
 
@@ -49,8 +49,6 @@ if [[ $TERM == "linux" && $(who | wc -l) == 1  ]]; then
 	startx
 fi
 
-#newsboat --url-file="$XDG_CONFIG_HOME/newsboat/arch" --execute=reload --execute=print-unread
-#neomutt -Z
 bold=$(tput bold)
 normal=$(tput sgr0)
 read rows cols < <(stty size)
