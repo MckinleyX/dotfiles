@@ -50,9 +50,10 @@ discord --start-minimized &
 xkbcomp $HOME/.config/Xkbrc $DISPLAY #keyboard layout
 picom -b
 dunsnt &
-stretchly &
+#stretchly &
 if [ $(mpc playlist | wc -l) -eq 0 ]; then
-	mpc clear && mpc load Ray_Lynch && mpc shuffle && mpc play && mpc pause
+	mpc clear && mpc add misc/Dvorak_Cello_Concerto.ogg && mpc shuffle && mpc play && mpc pause
 fi
 thunderbird --profile $XDG_DATA_HOME/thunderbird/*.default-release > /dev/null &
+#glava --audio=fifo --desktop
 exec bspwm

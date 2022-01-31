@@ -19,10 +19,11 @@ Plug 'dense-analysis/ale'
 Plug 'hura/vim-asymptote',			{ 'for' : 'asy' }
 Plug 'kovisoft/slimv',				{ 'for' : 'lisp' }
 Plug 'plasticboy/vim-markdown',		{ 'for' : 'markdown' }
-Plug 'thinca/vim-quickrun'
+"Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vimlab/split-term.vim'
+Plug 'junegunn/fzf'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "Plug 'puremourning/vimspector'

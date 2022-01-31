@@ -1,4 +1,4 @@
 visualizer_data_source = "/tmp/mpd.fifo"
 visualizer_output_name = "visual"
-visualizer_in_stereo = "yes"
+visualizer_in_stereo = "no"
 visualizer_type = "ellipse"

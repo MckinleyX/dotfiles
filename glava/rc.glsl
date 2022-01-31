@@ -14,6 +14,7 @@
    
    See documentation for more details. */
 #request mod bars
+/*#request mod wave*/
 
 /* Window hints */
 #request setfloating  false

@@ -2,7 +2,7 @@ autoload -Uz compinit promptinit vcs_info
 compinit
 promptinit
 
-test -f ~/.profile && . ~/.profile #If ~/.profile exists then source it
+[[ -f ~/.profile ]] && . ~/.profile #If ~/.profile exists then source it
 
 zstyle ':completion:*' menu select
 
@@ -49,6 +49,8 @@ if [[ $TERM == "linux" && $(who | wc -l) == 1  ]]; then
 	startx
 fi
 
+#newsboat --url-file="$XDG_CONFIG_HOME/newsboat/arch" --execute=reload --execute=print-unread
+#neomutt -Z
 bold=$(tput bold)
 normal=$(tput sgr0)
 read rows cols < <(stty size)
@@ -58,7 +60,7 @@ if [[ "$HOSTNAME" = "dream" && $cols -gt 70 ]]; then
 	AIME_WEEK=$(date +%V --date="02/08/2021")
 	task next
 	when w --noheader --items_today=bold,fggreen --past=0
-	echo "AIME is $(($AIME_WEEK - $CURRENT_WEEK + 52*(2022-$CURRENT_YEAR))) weeks away"
+	echo "AIME is $(($AIME_WEEK - $CURRENT_WEEK )) weeks away"
 fi
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
