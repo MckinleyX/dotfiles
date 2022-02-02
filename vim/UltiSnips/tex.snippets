@@ -1,0 +1,57 @@
+#snippet '(.)hat' "hat" riA
+#\hat{`!p snip.rv = match.group(1)`}
+#endsnippet
+
+#snippet '(.)bar' "hat" riA
+#\overline{`!p snip.rv = match.group(1)`}
+#endsnippet
+
+snippet beg "begin{} / end{}" bA
+\begin{$1}
+	$0
+\end{$1}
+endsnippet
+
+snippet mk "Math" wA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+	snip.rv = ' '
+else:
+	snip.rv = ''
+`$2
+endsnippet
+
+snippet dm "Math" wA
+\[ $1 \]
+$0
+endsnippet
+
+snippet '([A-Za-z])(\d+)(\D)' "auto subscript" wrA
+`!p snip.rv = match.group(1) + "_{" + match.group(2) + "}" + match.group(3)`
+endsnippet
+
+snippet // "Fraction1" iA
+\\frac{$1}{$2}$0
+endsnippet
+
+snippet '([\\\b\w]+_\\^)/' "Fraction" irA
+\\frac{`!p snip.rv = match.group(1)`}{$1}$0
+endsnippet
+
+snippet '^.*\(.*\)/' "() Fraction" wrA
+`!p
+stripped = match.string[:-1]
+depth = 0
+i = len(stripped) - 1
+while i >= 0:
+	if stripped[i] == ')': depth += 1
+	if stripped[i] == '(': depth -= 1
+	if depth == 0: break;
+	i -= 1;
+if depth == 0:
+	snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}";
+else:
+	snip.rv = match.string;
+`{$1}$0
+endsnippet
+
