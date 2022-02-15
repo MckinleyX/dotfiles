@@ -1,0 +1,7 @@
+[Default Applications]
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
+
+[Added Associations]
+application/x-tex=nvim.desktop;
+application/pdf=com.github.xournalpp.xournalpp.desktop;
+text/x-c=firefox.desktop;
