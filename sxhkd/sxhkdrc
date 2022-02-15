@@ -10,20 +10,30 @@ super + Return
 super + @space
 	rofi -show run
 
-super + c
-	gsimplecal
-
 super + shift + @space
 	rofi -show window
 
+super + alt + @space
+	rofi-pass
+
+super + c
+	gsimplecal
+
+
+#Keyboard layouts
 super + shift + Return
 	xkbcomp .config/Xkbrc :0
 
 super + alt + Return
 	setxkbmap us
 
-{F9,F11}
-	mpc seek {-,+}5
+#acpid is working, no need for this
+#{F9,F11}
+	#mpc seek {-,+}5
+
+#Screenshot
+{_,super +,} Print
+	scrot {_, --select --freeze} -q 100 /tmp/scrot$(date +%s).jpeg 
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -135,5 +145,3 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-{_,super +,} Print
-	scrot {_, --select --freeze} -q 100 /tmp/scrot$(date +%s).jpeg 
