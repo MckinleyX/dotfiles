@@ -1,0 +1,17 @@
+snippet fre "freopen" b
+freopen("`!p snip.rv = snip.basename`.in","r",stdin);
+freopen("`!p snip.rv = snip.basename`.out","w",stdout);
+$0
+endsnippet
+
+snippet init "template code" b
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+int main()
+{
+	cin.tie(0) -> sync_with_stdio(0);
+	$0
+}
+endsnippet
+
