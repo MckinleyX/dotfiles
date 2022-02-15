@@ -45,9 +45,6 @@ alias zshconfig="$EDITOR ~/.zshrc"
 
 #Startup stuff
 
-if [[ $TERM == "linux" && $(who | wc -l) == 1  ]]; then
-	startx
-fi
 
 #newsboat --url-file="$XDG_CONFIG_HOME/newsboat/arch" --execute=reload --execute=print-unread
 #neomutt -Z
@@ -62,7 +59,7 @@ if [[ "$HOSTNAME" = "dream" && $cols -gt 70 ]]; then
 	bold=$(tput bold)
 	normal=$(tput sgr0)
 	color='\033[1;36m'
-	echo -e "${color}${bold}AIME is $(($AIME_DAY - $CURRENT_DAY )) days away!"
+	echo -e "${color}${bold}AIME is $(($AIME_DAY - $CURRENT_DAY )) day away!"
 fi
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh

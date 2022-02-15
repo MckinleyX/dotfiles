@@ -34,3 +34,7 @@ alias 'pacman -R'='pacman -Rs'
 alias df='df -h'
 alias free='free -h'
 alias du='du -h'
+
+if [[ $TERM == "linux" && $(who | wc -l) == 1  ]]; then
+	startx
+fi
