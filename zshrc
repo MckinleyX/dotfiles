@@ -52,14 +52,10 @@ bold=$(tput bold)
 normal=$(tput sgr0)
 read rows cols < <(stty size)
 if [[ "$HOSTNAME" = "dream" && $cols -gt 70 ]]; then
-	CURRENT_DAY=$(date +%j)
-	AIME_DAY=$(date +%j --date="02/16/2021")
 	task next
 	when w --noheader --items_today=bold,fggreen --past=0
 	bold=$(tput bold)
 	normal=$(tput sgr0)
-	color='\033[1;36m'
-	echo -e "${color}${bold}AIME is $(($AIME_DAY - $CURRENT_DAY )) day away!"
 fi
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
