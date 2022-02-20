@@ -22,7 +22,7 @@ super + c
 
 #Keyboard layouts
 super + shift + Return
-	xkbcomp .config/Xkbrc :0
+	setxkbmap -model pc104 -layout us -variant dvp -option caps:backspace
 
 super + alt + Return
 	setxkbmap us
