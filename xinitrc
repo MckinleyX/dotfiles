@@ -50,9 +50,9 @@ discord --start-minimized &
 #xkbcomp $HOME/.config/Xkbrc $DISPLAY #keyboard layout
 picom -b
 dunsnt &
-#stretchly &
 if [ $(mpc playlist | wc -l) -eq 0 ]; then
-	mpc clear && mpc load dvorak && mpc shuffle && mpc play && mpc pause
+	mpc load classical && mpc shuffle && 
+		mpc play && mpc pause && mpc repeat on
 fi
 thunderbird --profile $XDG_DATA_HOME/thunderbird/*.default-release > /dev/null &
 #glava --audio=fifo --desktop
