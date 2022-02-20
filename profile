@@ -5,7 +5,7 @@ export PATH=$PATH:$HOME/.local/bin
 export TEXMFHOME=$XDG_DATA_HOME/texmf
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
 export PYTHONPATH=$XDG_DATA_HOME/python
-export HOSTNAME=$(hostnamectl hostname)
+export HOSTNAME=$(hostname)
 export WINEPREFIX=$HOME/.local/share/wine
 
 alias ls='ls --color=auto -h'
