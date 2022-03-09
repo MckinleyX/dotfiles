@@ -10,9 +10,9 @@ function prompt_char {
 	if [ $UID -eq 0 ]; then echo '#'; else echo '$'; fi
 }
 zstyle ':vcs_info:*' actionformats \
-    '%F{9}(%f%s%F{9})%F{3}-%F{9}[%F{2}%b%F{3}|%F{1}%a%F{9}]%f '
+    '%F{12}(%f%s%F{12})%F{3}-%F{12}[%F{2}%b%F{3}|%F{1}%a%F{12}]%f '
 zstyle ':vcs_info:*' formats       \
-    '%F{9}(%f%s%F{9})%F{3}-%F{9}[%F{2}%b%F{9}]%f '
+    '%F{12}(%f%s%F{12})%F{3}-%F{12}[%F{2}%b%F{12}]%f '
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 
 precmd () { vcs_info }
