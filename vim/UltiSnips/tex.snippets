@@ -50,6 +50,14 @@ snippet // "Fraction1" iA
 \\frac{$1}{$2}$0
 endsnippet
 
+snippet ( "parenl" i
+\left(
+endsnippet
+
+snippet ) "parenr" i
+\right)
+endsnippet
+
 snippet '\\frac(\d)(\d)' "fraction" irA
 \frac{`!p snip.rv = match.group(1)`}{`!p snip.rv = match.group(2)`}
 endsnippet
