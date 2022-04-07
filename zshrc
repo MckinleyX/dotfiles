@@ -21,8 +21,8 @@ setopt prompt_subst
 PROMPT='[%B%F{green}%n@%m %F{blue}%1~%b%f]$(prompt_char) '
 RPROMPT='${vcs_info_msg_0_}'
 
-SAVEHIST=10000
-HISTSIZE=10000
+SAVEHIST=100000
+HISTSIZE=100000
 HISTFILE=~/.zsh/history
 setopt APPEND_HISTORY
 setopt EXTENDED_HISTORY
@@ -59,3 +59,5 @@ if [[ "$HOSTNAME" = "dream" && $cols -gt 70 ]]; then
 fi
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+#[[ -r "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && 
+#	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

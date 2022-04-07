@@ -38,9 +38,9 @@ export XMODIFIERS=@im=fcitx
 fcitx5 -d -r
 
 
-#feh --bg-scale $HOME/.wallpapers/wallhaven-kw7d37_1920x1080.png
-feh --bg-scale --randomize $HOME/.wallpapers/*
-xinput disable "pointer:ELAN2514:00 04F3:29CE" #disable touchscreen since this computer is bad with palm detection
+feh --bg-scale $HOME/.wallpapers/wallhaven-kw7d37_1920x1080.png
+#feh --bg-scale --randomize $HOME/.wallpapers/*
+#xinput disable "pointer:ELAN2514:00 04F3:29CE" #disable touchscreen since this computer is bad with palm detection
 #xinput --map-to-output "pointer:ELAN2514:00 04F3:29CE Stylus Pen (0)" eDP #Make sure the stylus maps only to the laptop screen
 #xinput --map-to-output "pointer:ELAN2514:00 04F3:29CE Stylus Eraser (0)" eDP 
 
@@ -54,6 +54,7 @@ if [ $(mpc playlist | wc -l) -eq 0 ]; then
 	mpc load classical && mpc shuffle && 
 		mpc play && mpc pause && mpc repeat on
 fi
-thunderbird --profile $XDG_DATA_HOME/thunderbird/*.default-release > /dev/null &
+#thunderbird --profile $XDG_DATA_HOME/thunderbird/*.default-release > /dev/null &
 #glava --audio=fifo --desktop
+setxkbmap -model pc104 -layout us -variant dvp -option caps:backspace
 exec bspwm

@@ -27,6 +27,10 @@ super + shift + Return
 super + alt + Return
 	setxkbmap us
 
+super + ctrl + Return
+	autorandr -c docked && 
+	setxkbmap -model pc104 -layout us -variant dvp -option caps:backspace
+
 #acpid is working, no need for this
 #{F9,F11}
 	#mpc seek {-,+}5
