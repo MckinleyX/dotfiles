@@ -56,5 +56,6 @@ if [ $(mpc playlist | wc -l) -eq 0 ]; then
 fi
 #thunderbird --profile $XDG_DATA_HOME/thunderbird/*.default-release > /dev/null &
 #glava --audio=fifo --desktop
+xsetroot -cursor_theme left_ptr
 setxkbmap -model pc104 -layout us -variant dvp -option caps:backspace
 exec bspwm
