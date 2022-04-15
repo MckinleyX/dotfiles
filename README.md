@@ -5,6 +5,8 @@ I use the following:
 
 - [Arch Linux](https://archlinux.org)
 - [bspwm](https://github.com/baskerville/bspwm) (with [sxhkd](https://github.com/baskerville/sxhkd)) as a window manager
+- [picom](https://github.com/yshui/picom) as a compositor
+- [Alacritty](https://alacritty.org) as a terminal emulator
 - [Neovim](https://neovim.io) as a text editor
   - [vim-plug](https://github.com/junegunn/vim-plug) as a plugin manager
 - [zsh](https://en.wikipedia.org/wiki/Z_shell) as a shell
