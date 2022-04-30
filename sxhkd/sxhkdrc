@@ -5,6 +5,8 @@
 # terminal emulator
 super + Return
 	alacritty
+super + alt + Return
+	cool-retro-term
 
 # program launcher
 super + @space
