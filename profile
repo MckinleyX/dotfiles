@@ -9,6 +9,7 @@ export PYTHONPATH=$XDG_DATA_HOME/python
 export HOSTNAME=$(hostname)
 export WINEPREFIX=$HOME/.local/share/wine
 export GEM_HOME=$XDG_DATA_HOME/gem
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 alias ls='ls --color=auto -h'
 if [ -f "/usr/bin/bat" ]; then
