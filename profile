@@ -10,6 +10,7 @@ export HOSTNAME=$(hostname)
 export WINEPREFIX=$HOME/.local/share/wine
 export GEM_HOME=$XDG_DATA_HOME/gem
 export QT_QPA_PLATFORMTHEME=qt5ct
+export MOZ_USE_XINPUT2=1
 
 alias ls='ls --color=auto -h'
 if [ -f "/usr/bin/bat" ]; then
@@ -25,7 +26,7 @@ alias emacs='emacs -nw'
 alias FAHClient="FAHClient --chdir=$HOME/.local/share/foldingathome"
 alias auracle='auracle --chdir=$HOME/.aur_packages'
 alias ghc='ghc -dynamic'
-alias when='when --auto_pm=8 --items_today=bold,fggreen --past=0'
+alias when='when --auto_pm=8 --items_today_style=bold,fggreen --past=0'
 alias von='python -m von'
 alias tlmgr='tllocalmgr'
 alias zh2en='trans -s zh -t en'
