@@ -1,5 +1,5 @@
 autoload -Uz compinit promptinit vcs_info
-compinit
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 promptinit
 
 [[ -f ~/.profile ]] && . ~/.profile #If ~/.profile exists then source it
@@ -23,7 +23,7 @@ RPROMPT='${vcs_info_msg_0_}'
 
 SAVEHIST=100000
 HISTSIZE=100000
-HISTFILE=~/.zsh/history
+HISTFILE=$XDG_STATE_HOME/history
 setopt APPEND_HISTORY
 setopt EXTENDED_HISTORY
 setopt INC_APPEND_HISTORY

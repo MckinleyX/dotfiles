@@ -1,6 +1,7 @@
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
+set runtimepath^=$XDG_CONFIG_HOME/vim runtimepath+=$XDG_CONFIG_HOME/vim/after
 set encoding=UTF-8
 let &packpath = &runtimepath
+let vim_dir = "$XDG_CONFIG_HOME/vim"
 
 set nocompatible
 syntax on
@@ -39,9 +40,9 @@ call plug#end()
 filetype off
 set undofile
 if has('nvim')
-	set undodir=$HOME/.vim/undo_nvim
+	set undodir="$vim_dir"/undo_nvim
 else
-	set undodir=$HOME/.vim/undo_vim
+	set undodir=$vim_dir/undo_vim
 endif
 
 set foldenable
