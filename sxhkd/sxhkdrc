@@ -10,7 +10,7 @@ super + alt + Return
 
 # program launcher
 super + @space
-	rofi -show run
+	rofi -theme-str 'window \{padding:400;\}' -show run
 
 super + shift + @space
 	rofi -show window
