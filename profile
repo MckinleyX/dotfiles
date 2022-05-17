@@ -4,7 +4,7 @@ export PATH=$PATH:$XDG_DATA_HOME/gem/ruby/3.0.0/bin
 #export PATH=$PATH:$HOME/.local/bin
 export HOSTNAME=$(hostname)
 export QT_QPA_PLATFORMTHEME=qt5ct
-export MOZ_USE_XINPUT2=1
+#export MOZ_USE_XINPUT2=1
 
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
 export PYTHONPATH=$XDG_DATA_HOME/python
@@ -23,7 +23,6 @@ export TEXMFHOME=$XDG_DATA_HOME/texmf
 export TEXMFCONFIG=$XDG_CONFIG_HOME/texlive/texmf-config
 export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
 export XINITRC=$XDG_CONFIG_HOME/X11/xinitrc
-export XAUTHORITY=$XDG_RUNTIME_DIR/Xauthority
 export _Z_DATA=$XDG_STATE_HOME/z
 export SPACEMACSDIR=$XDG_CONFIG_HOME/spacemacs
 
