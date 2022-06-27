@@ -21,14 +21,19 @@ Plug 'hura/vim-asymptote',			{ 'for' : 'asy' }
 Plug 'kovisoft/slimv',				{ 'for' : 'lisp' }
 Plug 'plasticboy/vim-markdown',		{ 'for' : 'markdown' }
 Plug 'thinca/vim-quickrun'
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vimlab/split-term.vim'
 Plug 'junegunn/fzf'
+"Lean plugins
+Plug 'Julian/lean.nvim',			{ 'for' : 'lean' }
+Plug 'neovim/nvim-lspconfig',		{ 'for' : 'lean' }
+Plug 'nvim-lua/plenary.nvim',       { 'for' : 'lean' }
+
 Plug 'sirver/ultisnips',			
-"Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 "Plug 'puremourning/vimspector'
 
 "if has('nvim')
@@ -95,6 +100,8 @@ nnoremap <leader>< <
 nnoremap <leader>> >
 nnoremap <leader>o o
 nnoremap <leader>s s
+nnoremap <leader>bn :bn<CR>
+nnoremap <leader>bp :bp<CR>
 
 nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <silent> <leader>n :noh<CR>
@@ -116,6 +123,7 @@ nnoremap <CR> :wa<CR>:w<CR>
 nnoremap Q :q<CR>
 
 
+"set number norelativenumber
 " Use relative numbers while in normal mode in a buffer
 augroup numbertoggle
 	autocmd!

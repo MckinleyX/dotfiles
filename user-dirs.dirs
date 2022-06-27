@@ -1,4 +1,4 @@
-XDG_DESKTOP_DIR="$HOME"
-XDG_DOWNLOAD_DIR="$HOME/Downloads"
-XDG_DOCUMENTS_DIR="$HOME/Documents"
-XDG_MUSIC_DIR="$HOME/.music"
+XDG_DESKTOP_DIR="/home/faefeyfa"
+XDG_DOWNLOAD_DIR="/home/faefeyfa/Downloads"
+XDG_DOCUMENTS_DIR="/home/faefeyfa/Documents"
+XDG_MUSIC_DIR="/home/faefeyfa/.music"

@@ -2,8 +2,8 @@
 #\hat{`!p snip.rv = match.group(1)`}
 #endsnippet
 
-#snippet '(.)bar' "hat" riA
-#\overline{`!p snip.rv = match.group(1)`}
+#snippet '(\s)(.+)bar' "bar" riA
+#`!p snip.rv = match.group(1)`\overline{`!p snip.rv = match.group(2)`}
 #endsnippet
 
 snippet init "init" b
@@ -13,18 +13,29 @@ snippet init "init" b
 \title{$1}
 \author{Mckinley Xie}
 \begin{document}
+\maketitle
 	$0
 \end{document}
 endsnippet
 
-snippet \i "item" b
-\item
+#snippet '\t\\ii' "item" bA
+#\item
+#endsnippet
+
+snippet beg "begin{}" b
+\begin{$1}$0
 endsnippet
 
-snippet beg "begin{} / end{}" b
-\begin{$1}
-	$0
-\end{$1}
+snippet tt "typewriter" b
+\texttt{$1}$0
+endsnippet
+
+snippet bf "bold" b
+\textbf{$1}$0
+endsnippet
+
+snippet cal "mathcal" b
+\mathcal{$1}$0
 endsnippet
 
 snippet mk "Math" wA
@@ -41,12 +52,12 @@ snippet dm "Math" wA
 $0
 endsnippet
 
-snippet \tri "triangle" iA
+snippet tri "triangle" ib
 \triangle
 endsnippet
 
 
-snippet // "Fraction1" i
+snippet // "Fraction1" iA
 \\frac{$1}{$2}$0
 endsnippet
 
@@ -93,4 +104,12 @@ endsnippet
 
 snippet '([A-Za-z])(\d\d+)(\D)' "auto subscript" wrA
 `!p snip.rv = match.group(1) + "_{" + match.group(2) + "}" + match.group(3)`
+endsnippet
+
+snippet == "equivalent" wA
+\equiv$1 \pmod{$2}$0
+endsnippet
+
+snippet * "cdot" A
+\cdot
 endsnippet

@@ -5,8 +5,6 @@
 # terminal emulator
 super + Return
 	alacritty
-super + alt + Return
-	cool-retro-term
 
 # program launcher
 super + @space
@@ -18,8 +16,11 @@ super + shift + @space
 super + alt + @space
 	rofi-pass
 
-super + c
+super + d
 	gsimplecal
+
+super + r
+	dmenu_rose
 
 
 #Keyboard layouts

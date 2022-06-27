@@ -33,7 +33,7 @@
     origin = top-right
 
     # Offset from the origin
-    offset = 12x57
+    offset = 12x42
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -196,7 +196,7 @@
     max_icon_size = 32
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_path = /usr/share/icons/Arc/apps:/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
     ### History ###
 

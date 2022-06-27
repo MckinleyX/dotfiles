@@ -1,6 +1,6 @@
 #!/bin/sh
 
-userresources=$XDG_CONFIG_HOME/X11/.Xresources
+userresources=$XDG_CONFIG_HOME/X11/Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
@@ -36,9 +36,7 @@ export GTK_IM_MODULE=fcitx5
 export QT_IM_MODULE=fcitx5
 export XMODIFIERS=@im=fcitx
 fcitx5 -d -r
-
-
-feh --no-fehbg --bg-scale $HOME/.wallpapers/wallhaven-kw7d37_1920x1080.png
+upd_wall
 #feh --bg-scale --randomize $HOME/.wallpapers/*
 #xinput disable "pointer:ELAN2514:00 04F3:29CE" #disable touchscreen since this computer is bad with palm detection
 #xinput --map-to-output "pointer:ELAN2514:00 04F3:29CE Stylus Pen (0)" eDP #Make sure the stylus maps only to the laptop screen
@@ -46,9 +44,9 @@ feh --no-fehbg --bg-scale $HOME/.wallpapers/wallhaven-kw7d37_1920x1080.png
 
 numlockx & # Save numlock status
 xmousepasteblock & # Disable middle click pasting
-discord --start-minimized &
+#discord --start-minimized &
 #xkbcomp $HOME/.config/Xkbrc $DISPLAY #keyboard layout
-picom -b
+picom -b --experimental-backends
 dunsnt &
 if [ $(mpc playlist | wc -l) -eq 0 ]; then
 	mpc load classical && mpc shuffle && 
@@ -56,7 +54,6 @@ if [ $(mpc playlist | wc -l) -eq 0 ]; then
 fi
 #thunderbird --profile $XDG_DATA_HOME/thunderbird/*.default-release > /dev/null &
 #glava --audio=fifo --desktop
-xsetroot -cursor_name left_ptr
 setxkbmap -model pc104 -layout us -variant dvp -option caps:backspace
-alacritty -e nyx &
+xsetroot -cursor_name left_ptr
 exec bspwm
