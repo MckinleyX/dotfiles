@@ -1,5 +1,4 @@
 set runtimepath^=$XDG_CONFIG_HOME/vim runtimepath+=$XDG_CONFIG_HOME/vim/after
-set encoding=UTF-8
 let &packpath = &runtimepath
 let vim_dir = "$XDG_CONFIG_HOME/vim"
 
@@ -30,6 +29,12 @@ Plug 'Julian/lean.nvim',			{ 'for' : 'lean' }
 Plug 'neovim/nvim-lspconfig',		{ 'for' : 'lean' }
 Plug 'nvim-lua/plenary.nvim',       { 'for' : 'lean' }
 
+"Agda plugin
+Plug 'kana/vim-textobj-user'
+Plug 'neovimhaskell/nvim-hs.vim'
+Plug 'liuchengxu/vim-which-key'
+Plug 'isovector/cornelis', { 'do': 'stack build' }
+
 Plug 'sirver/ultisnips',			
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -44,11 +49,7 @@ call plug#end()
 
 filetype off
 set undofile
-if has('nvim')
-	set undodir="$vim_dir"/undo_nvim
-else
-	set undodir=$vim_dir/undo_vim
-endif
+set undodir=$XDG_STATE_HOME/nvim/undo_nvim
 
 set foldenable
 set foldmethod=indent
@@ -85,7 +86,7 @@ let g:vimtex_quickfix_mode=0
 let g:UltiSnipsExpandTrigger = '<tab>'			
 let g:UltiSnipsJumpForwardTrigger = '<tab>'		
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'	
-"let g:tex_conceal='abdmg'
+let g:tex_conceal='abdmg'
 
 " Because Ctrl-W is kinda hard
 nnoremap <leader>l l
