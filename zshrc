@@ -35,7 +35,6 @@ unsetopt beep
 bindkey -v #vi keybindings
 bindkey '' history-incremental-search-backward
 
-
 unsetopt beep
 setopt HIST_IGNORE_SPACE
 bindkey -v #vi keybindings
@@ -59,5 +58,6 @@ if [[ "$HOSTNAME" = "dream" && $cols -gt 70 ]]; then
 fi
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+#[[ -r "/opt/miniconda3/etc/profile.d/conda.sh" ]] && source /opt/miniconda3/etc/profile.d/conda.sh
 #[[ -r "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && 
 #	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

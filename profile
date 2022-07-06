@@ -30,6 +30,7 @@ export SPACEMACSDIR=$XDG_CONFIG_HOME/spacemacs
 export AUR=/var/cache/pacman/aur
 
 alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
+alias neovim="/home/faefeyfa/.local/bin/nvim --clean -u ~/minimal.vim ~/minimal.tex"
 
 alias ls='ls --color=auto -h'
 if [ -f "/usr/bin/bat" ]; then

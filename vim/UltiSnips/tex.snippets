@@ -7,20 +7,16 @@
 #endsnippet
 
 snippet init "init" b
-\documentclass{scrartcl}
+\documentclass[12pt]{scrartcl}
 \usepackage[sexy]{evan}
-\usepackage{mckinley}
-\title{$1}
+\usepackage[${1:options]}{mckinley}
+\title{${2:title}}
 \author{Mckinley Xie}
 \begin{document}
 \maketitle
 	$0
 \end{document}
 endsnippet
-
-#snippet '\t\\ii' "item" bA
-#\item
-#endsnippet
 
 snippet beg "begin{}" b
 \begin{$1}$0
@@ -61,14 +57,6 @@ snippet // "Fraction1" iA
 \\frac{$1}{$2}$0
 endsnippet
 
-snippet ( "parenl" i
-\left(
-endsnippet
-
-snippet ) "parenr" i
-\right)
-endsnippet
-
 snippet '\\frac(\d)(\d)' "fraction" irA
 \frac{`!p snip.rv = match.group(1)`}{`!p snip.rv = match.group(2)`}
 endsnippet
@@ -107,9 +95,21 @@ snippet '([A-Za-z])(\d\d+)(\D)' "auto subscript" wrA
 endsnippet
 
 snippet == "equivalent" wA
-\equiv$1 \pmod{$2}$0
+\equiv$1 \pmod{${2:m}}$0
 endsnippet
 
 snippet * "cdot" A
 \cdot
+endsnippet
+
+snippet gA "Greek a" wA
+\alpha
+endsnippet
+snippet gB "Greek b" wA
+\beta
+endsnippet
+
+snippet wop "wop" wA
+Suppose otherwise and let $S$ be the set of all values such that
+the claim is false. Then consider $m$, the least element of $S$.
 endsnippet

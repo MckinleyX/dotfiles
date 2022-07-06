@@ -56,4 +56,5 @@ fi
 #glava --audio=fifo --desktop
 setxkbmap -model pc104 -layout us -variant dvp -option caps:backspace
 xsetroot -cursor_name left_ptr
+xset r rate 250 30
 exec bspwm
