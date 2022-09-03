@@ -30,7 +30,8 @@ export SPACEMACSDIR=$XDG_CONFIG_HOME/spacemacs
 export AUR=/var/cache/pacman/aur
 
 alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
-alias neovim="/home/faefeyfa/.local/bin/nvim --clean -u ~/minimal.vim ~/minimal.tex"
+#alias neovim="/home/faefeyfa/.local/bin/nvim --clean -u ~/minimal.vim ~/minimal.tex"
+alias maxima="rlwrap maxima"
 
 alias ls='ls --color=auto -h'
 if [ -f "/usr/bin/bat" ]; then
@@ -55,11 +56,15 @@ alias bc='bc -l'
 alias 'pacman -R'='pacman -Rs'
 alias vim='vim -i NONE'
 alias startx="startx $XINITRC"
+alias packettracer="HOME=$XDG_DATA_HOME packettracer"
 
 alias df='df -h'
 alias free='free -h'
 alias du='du -h'
 
-if [[ $TERM == "linux" && $(who | wc -l) == 1  ]]; then
-	startx
+if [[ $TERM == "linux"  ]]; then
+	setfont ter-u24n
+	if [[ $(who | wc -l) == 1 ]]; then
+		startx
+	fi
 fi
