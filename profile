@@ -33,8 +33,7 @@ export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export AUR=/var/cache/pacman/aur
 
 alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
-#alias neovim="/home/faefeyfa/.local/bin/nvim --clean -u ~/minimal.vim ~/minimal.tex"
-alias maxima="rlwrap maxima"
+alias neovim="/home/faefeyfa/.local/bin/nvim --clean -u ~/minimal.vim ~/minimal.tex"
 
 alias ls='ls --color=auto -h'
 if [ -f "/usr/bin/bat" ]; then
@@ -66,9 +65,6 @@ alias df='df -h'
 alias free='free -h'
 alias du='du -h'
 
-if [[ $TERM == "linux"  ]]; then
-	setfont ter-u24n
-	if [[ $(who | wc -l) == 1 ]]; then
-		startx
-	fi
+if [[ $TERM == "linux" && $(who | wc -l) == 1  ]]; then
+	startx
 fi
