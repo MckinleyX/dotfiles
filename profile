@@ -12,6 +12,7 @@ export PYTHONPATH=$XDG_DATA_HOME/python
 export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
 export WINEPREFIX=$XDG_DATA_HOME/wine
 export GEM_HOME=$XDG_DATA_HOME/gem
+export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export CALCHISTFILE=$XDG_STATE_HOME/calc_history
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 export GOPATH=$XDG_DATA_HOME/go
@@ -27,6 +28,8 @@ export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
 export XINITRC=$XDG_CONFIG_HOME/X11/xinitrc
 export _Z_DATA=$XDG_STATE_HOME/z
 export SPACEMACSDIR=$XDG_CONFIG_HOME/spacemacs
+export MAXIMA_USERDIR="$XDG_CONFIG_HOME"/maxima
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export AUR=/var/cache/pacman/aur
 
 alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
@@ -57,6 +60,7 @@ alias 'pacman -R'='pacman -Rs'
 alias vim='vim -i NONE'
 alias startx="startx $XINITRC"
 alias packettracer="HOME=$XDG_DATA_HOME packettracer"
+alias ussh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -q"
 
 alias df='df -h'
 alias free='free -h'

@@ -33,6 +33,7 @@ super + alt + Return
 super + ctrl + Return
 	autorandr -c docked && 
 	setxkbmap -model pc104 -layout us -variant dvp -option caps:backspace
+	&& upd_wall
 
 #acpid is working, no need for this
 #{F9,F11}
@@ -40,7 +41,7 @@ super + ctrl + Return
 
 #Screenshot
 {_,super +,} Print
-	scrot {_, --select --freeze} -q 100 /tmp/scrot$(date +%s).jpeg 
+	scrot {_, --select --freeze} --quality 75 /tmp/scrot$(date +%s).png
 
 # make sxhkd reload its configuration files:
 super + Escape

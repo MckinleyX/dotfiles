@@ -20,18 +20,11 @@ endsnippet
 
 snippet beg "begin{}" b
 \begin{$1}$0
+\end{$1}
 endsnippet
 
-snippet tt "typewriter" b
-\texttt{$1}$0
-endsnippet
-
-snippet bf "bold" b
-\textbf{$1}$0
-endsnippet
-
-snippet cal "mathcal" b
-\mathcal{$1}$0
+snippet sb "begin{}" w
+\begin{$1}$2\end{$1}$0
 endsnippet
 
 snippet mk "Math" wA
@@ -57,41 +50,24 @@ snippet // "Fraction1" iA
 \\frac{$1}{$2}$0
 endsnippet
 
-snippet '\\frac(\d)(\d)' "fraction" irA
-\frac{`!p snip.rv = match.group(1)`}{`!p snip.rv = match.group(2)`}
-endsnippet
-
 #snippet '([\\\b\w_\\^]+)/' "Fraction" irA
 #\\frac{`!p snip.rv = match.group(1)`}{$1}$0
 #endsnippet
-
-snippet '^.*\(.*\)/' "() Fraction" wrA
-`!p
-stripped = match.string[:-1]
-depth = 0
-i = len(stripped) - 1
-while i >= 0:
-	if stripped[i] == ')': depth += 1
-	if stripped[i] == '(': depth -= 1
-	if depth == 0: break;
-	i -= 1;
-if depth == 0:
-	snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}";
-else:
-	snip.rv = match.string;
-`{$1}$0
-endsnippet
 
 snippet box "box answer" w
 \boxed{$1}$0
 endsnippet
 
-snippet '([A-Za-z])(\d\D)' "auto subscript" wrA
-`!p snip.rv = match.group(1) + "_" + match.group(2)`
-endsnippet
+#snippet '([A-Za-z])(\d\D)' "auto subscript" wrA
+#`!p snip.rv = match.group(1) + "_" + match.group(2)`
+#endsnippet
 
 snippet '([A-Za-z])(\d\d+)(\D)' "auto subscript" wrA
 `!p snip.rv = match.group(1) + "_{" + match.group(2) + "}" + match.group(3)`
+endsnippet
+
+snippet '\^([-\d]\d+)(\D)' "auto exponent" wrA
+`!p snip.rv =  "^{" + match.group(1) + "}" + match.group(2)`
 endsnippet
 
 snippet == "equivalent" wA
@@ -102,6 +78,10 @@ snippet * "cdot" A
 \cdot
 endsnippet
 
+snippet ( "lparen" i
+\left(
+endsnippet
+
 snippet gA "Greek a" wA
 \alpha
 endsnippet
@@ -110,6 +90,14 @@ snippet gB "Greek b" wA
 endsnippet
 
 snippet wop "wop" wA
-Suppose otherwise and let $S$ be the set of all values such that
-the claim is false. Then consider $m$, the least element of $S$.
+Suppose otherwise and let 
+$${1:S}:=\{ n \mid ${2:\text{the claim is false}} \}$. 
+Then consider $${4:m}$, the least element of $$1$.
+
+$5
+
+So $$4$ must in fact not be minimal, 
+which contradicts the assumption
+that $$4$ is minimal, 
+so $$1$ must be empty and we are done.
 endsnippet

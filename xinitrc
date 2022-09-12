@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd $HOME
+
 userresources=$XDG_CONFIG_HOME/X11/Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -38,9 +40,7 @@ export XMODIFIERS=@im=fcitx
 fcitx5 -d -r
 upd_wall
 #feh --bg-scale --randomize $HOME/.wallpapers/*
-#xinput disable "pointer:ELAN2514:00 04F3:29CE" #disable touchscreen since this computer is bad with palm detection
-#xinput --map-to-output "pointer:ELAN2514:00 04F3:29CE Stylus Pen (0)" eDP #Make sure the stylus maps only to the laptop screen
-#xinput --map-to-output "pointer:ELAN2514:00 04F3:29CE Stylus Eraser (0)" eDP 
+fix_touchscreen
 
 numlockx & # Save numlock status
 xmousepasteblock & # Disable middle click pasting
@@ -48,6 +48,7 @@ xmousepasteblock & # Disable middle click pasting
 #xkbcomp $HOME/.config/Xkbrc $DISPLAY #keyboard layout
 picom -b --experimental-backends
 dunsnt &
+mpc load radio
 if [ $(mpc playlist | wc -l) -eq 0 ]; then
 	mpc load classical && mpc shuffle && 
 		mpc play && mpc pause && mpc repeat on
@@ -57,4 +58,5 @@ fi
 setxkbmap -model pc104 -layout us -variant dvp -option caps:backspace
 xsetroot -cursor_name left_ptr
 xset r rate 250 30
+mkdir /tmp/Downloads
 exec bspwm

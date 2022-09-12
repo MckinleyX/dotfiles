@@ -23,18 +23,6 @@ Plug 'thinca/vim-quickrun'
 "Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vimlab/split-term.vim'
-Plug 'junegunn/fzf'
-"Lean plugins
-Plug 'Julian/lean.nvim',			{ 'for' : 'lean' }
-Plug 'neovim/nvim-lspconfig',		{ 'for' : 'lean' }
-Plug 'nvim-lua/plenary.nvim',       { 'for' : 'lean' }
-
-"Agda plugin
-Plug 'kana/vim-textobj-user'
-Plug 'neovimhaskell/nvim-hs.vim'
-Plug 'liuchengxu/vim-which-key'
-Plug 'isovector/cornelis', { 'do': 'stack build' }
-
 Plug 'sirver/ultisnips',			
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -45,6 +33,9 @@ Plug 'ryanoasis/vim-devicons'
 "	Plug 'shougo/deoppet.nvim'
 "endif
 call plug#end()
+
+"Agda
+"au BufWritePost *.lagda execute "normal! :CornelisLoad\<CR>"
 
 
 filetype off
@@ -84,10 +75,11 @@ let g:vimtex_log_verbose=1
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
+"let g:vimtex_syntax_packages = {'amsmath': 2, 'asymptote': 2}
 let g:UltiSnipsExpandTrigger = '<tab>'			
 let g:UltiSnipsJumpForwardTrigger = '<tab>'		
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'	
-let g:tex_conceal='abdmg'
+let g:tex_conceal='abdmgs'
 
 " Because Ctrl-W is kinda hard
 nnoremap <leader>l l
@@ -110,11 +102,22 @@ nnoremap <silent> <leader>n :noh<CR>
 nnoremap <leader>r :QuickRun<CR>
 nnoremap Y y$
 
-" Probably a bad habit
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
+
+"I sometimes accidentally scroll on touchpad,
+"so disable arrow keys (which also disables
+"mouse scrolling)
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
 
 nnoremap ; :
 nnoremap : ;
@@ -139,9 +142,27 @@ let g:airline#extensions#ale#enabled = 1
 
 let g:airline_theme='violet'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#vimtex#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
+
+if (empty($TMUX))
+  if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+colorscheme slate
+
+"Slate is nice, except the paren highlighting is atrocious
+hi MatchParen guifg=#cccccc guibg=#008b8b gui=NONE cterm=NONE
 
 
 let g:ale_haskell_ghc_options = '-fno-code -v0 -dynamic'
@@ -159,3 +180,4 @@ function! LinterStatus() abort
 endfunction
 
 set statusline=%{LinterStatus()}
+
