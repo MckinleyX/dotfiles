@@ -18,6 +18,7 @@ x-scheme-handler/unknown=rose.desktop
 text/plain=nvim.desktop
 image=/usr/share/applications/feh.desktop
 image/jpeg=/usr/share/applications/feh.desktop
+image/png=/usr/share/applications/feh.desktop
 
 [Added Associations]
 application/x-tex=nvim.desktop;
@@ -26,3 +27,4 @@ x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 text/html=firefox.desktop;
 image/jpeg=feh.desktop;
+image/png=feh.desktop

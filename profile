@@ -4,6 +4,7 @@ export PATH=$PATH:$XDG_DATA_HOME/gem/ruby/3.0.0/bin
 #export PATH=$PATH:$HOME/.local/bin
 export HOSTNAME=$(hostname)
 export QT_QPA_PLATFORMTHEME=qt5ct
+export BAT_THEME="Catppuccin-macchiato"
 #export MOZ_USE_XINPUT2=1
 
 export ANDROID_HOME="$XDG_DATA_HOME"/android
@@ -30,10 +31,12 @@ export _Z_DATA=$XDG_STATE_HOME/z
 export SPACEMACSDIR=$XDG_CONFIG_HOME/spacemacs
 export MAXIMA_USERDIR="$XDG_CONFIG_HOME"/maxima
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export MPLAYER_HOME="$XDG_CONFIG_HOME"/mplayer
 export AUR=/var/cache/pacman/aur
+#export http_proxy="socks5://splash:1080"
+#export https_proxy=$http_proxy
 
 alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
-alias neovim="/home/faefeyfa/.local/bin/nvim --clean -u ~/minimal.vim ~/minimal.tex"
 
 alias ls='ls --color=auto -h'
 if [ -f "/usr/bin/bat" ]; then
@@ -58,13 +61,17 @@ alias bc='bc -l'
 alias 'pacman -R'='pacman -Rs'
 alias vim='vim -i NONE'
 alias startx="startx $XINITRC"
-alias packettracer="HOME=$XDG_DATA_HOME packettracer"
+alias packettracer="HOME=/home/faefeyfa/school/cisco packettracer"
 alias ussh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -q"
+alias proxify="http_proxy=socks5://splash:1080 https_proxy=socks5://splash:1080"
+alias pdiscord='proxify discord --proxy-server="socks5://splash:1080" & disown'
 
 alias df='df -h'
 alias free='free -h'
 alias du='du -h'
 
-if [[ $TERM == "linux" && $(who | wc -l) == 1  ]]; then
-	startx
+if [[ $TERM == "linux" ]]; then
+	if [[ $(who | wc -l) == 1 ]]; then
+		startx
+	fi
 fi

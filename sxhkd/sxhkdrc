@@ -19,9 +19,6 @@ super + alt + @space
 super + d
 	gsimplecal
 
-super + r
-	dmenu_rose
-
 
 #Keyboard layouts
 super + shift + Return

@@ -55,7 +55,6 @@ if [[ "$HOSTNAME" = "dream" && $cols -gt 70 ]]; then
 	when w --noheader --items_today=bold,fggreen --past=0
 	bold=$(tput bold)
 	normal=$(tput sgr0)
-	#archey3
 fi
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh

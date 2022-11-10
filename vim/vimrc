@@ -3,6 +3,7 @@ let &packpath = &runtimepath
 let vim_dir = "$XDG_CONFIG_HOME/vim"
 
 set nocompatible
+set encoding=UTF-8
 syntax on
 
 mapclear " "
@@ -13,25 +14,19 @@ call plug#begin()
 Plug 'godlygeek/tabular'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'lervag/vimtex',				{ 'for' : 'tex' }
-"Plug 'scrooloose/syntastic'
-"Plug 'scrooloose/nerdtree'
 Plug 'dense-analysis/ale'
 Plug 'hura/vim-asymptote',			{ 'for' : 'asy' }
 Plug 'kovisoft/slimv',				{ 'for' : 'lisp' }
 Plug 'plasticboy/vim-markdown',		{ 'for' : 'markdown' }
 Plug 'thinca/vim-quickrun'
-"Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vimlab/split-term.vim'
 Plug 'sirver/ultisnips',			
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
-"Plug 'puremourning/vimspector'
+Plug 'itchyny/lightline.vim'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin'}
+"Plug 'ryanoasis/vim-devicons'
+Plug 'puremourning/vimspector'
 
-"if has('nvim')
-"	Plug 'shougo/deoppet.nvim'
-"endif
 call plug#end()
 
 "Agda
@@ -138,14 +133,6 @@ set number norelativenumber
 
 filetype plugin indent on
 
-let g:airline#extensions#ale#enabled = 1
-
-let g:airline_theme='violet'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#vimtex#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:webdevicons_enable_airline_tabline = 1
-let g:webdevicons_enable_airline_statusline = 1
 
 if (empty($TMUX))
   if (has("nvim"))
@@ -159,11 +146,11 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
-colorscheme slate
-
 "Slate is nice, except the paren highlighting is atrocious
-hi MatchParen guifg=#cccccc guibg=#008b8b gui=NONE cterm=NONE
-
+"colorscheme slate
+"hi MatchParen guifg=#cccccc guibg=#008b8b gui=NONE cterm=NONE
+colorscheme catppuccin-macchiato
+let g:lightline = {'colorscheme': 'catppuccin'}
 
 let g:ale_haskell_ghc_options = '-fno-code -v0 -dynamic'
 function! LinterStatus() abort
@@ -180,4 +167,3 @@ function! LinterStatus() abort
 endfunction
 
 set statusline=%{LinterStatus()}
-
