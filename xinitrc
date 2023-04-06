@@ -38,20 +38,19 @@ export GTK_IM_MODULE=fcitx5
 export QT_IM_MODULE=fcitx5
 export XMODIFIERS=@im=fcitx
 fcitx5 -d -r
-#upd_wall
-feh --bg-scale $HOME/.local/share/wallpapers/catppuccin/flatppuccin/flatppuccin_4k_macchiato.png
+$HOME/.local/bin/upd_wall
 fix_touchscreen
 
 numlockx & # Save numlock status
 xmousepasteblock & # Disable middle click pasting
 #discord --start-minimized &
 #xkbcomp $HOME/.config/Xkbrc $DISPLAY #keyboard layout
-picom -b --experimental-backends
+picom -b
 dunsnt &
 mpc repeat on
 if [ $(mpc playlist | wc -l) -eq 0 ]; then
 	#mpc load radio
-	mpc load classical && mpc shuffle 
+	mpc load fav && mpc shuffle 
 fi
 #thunderbird --profile $XDG_DATA_HOME/thunderbird/*.default-release > /dev/null &
 #glava --audio=fifo --desktop

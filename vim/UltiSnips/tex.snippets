@@ -2,9 +2,9 @@
 #\hat{`!p snip.rv = match.group(1)`}
 #endsnippet
 
-#snippet '(\s)(.+)bar' "bar" riA
-#`!p snip.rv = match.group(1)`\overline{`!p snip.rv = match.group(2)`}
-#endsnippet
+snippet '(\s)(\w+)bar' "bar" riA
+`!p snip.rv = match.group(1)`\overline{`!p snip.rv = match.group(2)`}
+endsnippet
 
 snippet init "init" b
 \documentclass[12pt]{scrartcl}
@@ -41,7 +41,7 @@ snippet dm "Math" wA
 $0
 endsnippet
 
-snippet tri "triangle" ib
+snippet tri "triangle" w
 \triangle
 endsnippet
 

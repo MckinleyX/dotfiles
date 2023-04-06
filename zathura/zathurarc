@@ -1,6 +1,6 @@
-set default-bg "#262626"
-set recolor-darkcolor "#ffffff"
-set recolor-lightcolor "#262626"
+include catppuccin-macchiato
+#set recolor-darkcolor "#ffffff"
+#set recolor-lightcolor "#262626"
 set recolor true
 set dbus-service true
 set synctex true

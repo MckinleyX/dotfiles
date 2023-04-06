@@ -29,10 +29,6 @@ Plug 'puremourning/vimspector'
 
 call plug#end()
 
-"Agda
-"au BufWritePost *.lagda execute "normal! :CornelisLoad\<CR>"
-
-
 filetype off
 set undofile
 set undodir=$XDG_STATE_HOME/nvim/undo_nvim
